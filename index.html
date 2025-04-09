@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MORA - Moment of Relationship Archive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style -->
+    <style>
+      :root {
+        --primary-dark: #561c24;
+        --primary-red: #bf3131;
+        --primary-beige: #ead196;
+        --primary-light: #f3dc8b;
+      }
+
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .font-dancing {
+        font-family: "Dancing Script", cursive;
+      }
+    </style>
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-b from-[#561c24] to-[#ead196] font-poppins"
+  >
+    <!-- Navbar Start -->
+    <nav
+      class="bg-[--primary-dark] text-[--primary-dark] fixed top-0 left-0 right-0 z-[9999] rounded-b-2xl py-6 px-[7%] flex justify-between items-center"
+    >
+      <!-- Mora Logo dengan Font Dancing Script -->
+      <div class="mora">
+        <a
+          href="index.html"
+          class="text-4xl font-bold block font-dancing text-[--primary-beige]"
+          >MORA</a
+        >
+      </div>
+
+      <!-- Nav Links -->
+      <div class="text-[1.3rem] text-[--primary-beige]">
+        <a href="#home" class="hover:text-[--primary-red] mr-4">Home</a>
+        <a href="#about" class="hover:text-[--primary-red] mr-4"
+          >Tentang Kami</a
+        >
+        <a href="#fitur" class="hover:text-[--primary-red] mr-4">Fitur</a>
+        <a href="#contact" class="hover:text-[--primary-red] mr-4">Kontak</a>
+      </div>
+
+      <div>
+        <a
+          href="Login.html"
+          class="bg-[--primary-red] text-[--primary-light] hover:bg-[--primary-beige] hover:text-[--primary-red] px-4 py-2 rounded-xl"
+        >
+          Login
+        </a>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Section Start -->
+    <section class="min-h-screen flex overflow-hidden relative items-center py-6 px-[7%] z-[1] ">
+        <h1 class="text-3xl font-bold text-[--primary-dark] font-dancing">
+          MORA
+        </h1>
+        <h2 class="text-2xl font-bold text-[--primary-light]">
+          Moment of Relationship Archive
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
+          laboriosam suscipit eaque placeat excepturi ab beatae sequi a,
+          obcaecati labore?
+        </p>
+        <a
+          href="Main.html"
+          class="bg-[--primary-red] text-[--primary-light] hover:bg-[--primary-beige] hover:text-[--primary-red] px-4 py-2 rounded-xl"
+          >Mulai Sekarang</a
+        >
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Script untuk feather icons -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
