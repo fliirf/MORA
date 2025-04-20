@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - MORA</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@100;300;400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --primary-dark: #652A4A;
+                --primary-accent: #D95980;
+                --primary-light: #FFE4E8;
+                --primary-neutral: #F7D1CD;
+                --secondary-accent: #A68DAD;
+            }
+
+            .font-poppins {
+                font-family: "Poppins", sans-serif;
+            }
+
+            .font-dancing {
+                font-family: "Dancing Script", cursive;
+            }
+
+            .romantic-gradient {
+                background: linear-gradient(to bottom right, var(--primary-dark), var(--primary-accent));
+            }
+
+            .glow-effect {
+                box-shadow: 0 0 15px rgba(217, 89, 128, 0.4);
+                transition: all 0.3s ease;
+            }
+
+            .glow-effect:hover {
+                box-shadow: 0 0 25px rgba(217, 89, 128, 0.7);
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-5px); }
+            }
+
+            .floating {
+                animation: float 2s ease-in-out infinite;
+            }
+            
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            body::-webkit-scrollbar {
+                display: none;
+            }
+            
+            /* Hide scrollbar for IE, Edge and Firefox */
+            body {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+        </style>
+    </head>
+
+    <body class="h-screen romantic-gradient font-poppins flex items-center justify-center">
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 w-full max-w-sm relative overflow-hidden shadow-xl">
+            <!-- Logo and Title -->
+            <div class="text-center mb-3">
+                <a href="index.html" class="text-4xl font-bold font-dancing text-white inline-block floating">
+                    MORA
+                </a>
+                <p class="text-white/80 text-sm mt-1">Welcome Back!</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="space-y-3">
+                <!-- Email Input -->
+                <div>
+                    <label class="block text-white text-xs font-medium mb-1">Email</label>
+                    <input
+                        type="email"
+                        class="w-full px-3 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-[--primary-accent] transition-all duration-300 text-sm"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </div>
+
+                <!-- Password Input -->
+                <div>
+                    <label class="block text-white text-xs font-medium mb-1">Password</label>
+                    <input
+                        type="password"
+                        class="w-full px-3 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-[--primary-accent] transition-all duration-300 text-sm"
+                        placeholder="Enter your password"
+                        required
+                    />
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between text-xs">
+                    <label class="flex items-center text-white/80">
+                        <input type="checkbox" class="mr-1 rounded text-[--primary-accent] h-3 w-3" />
+                        Remember me
+                    </label>
+                    <a href="#" class="text-white/80 hover:text-white transition-colors">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="w-full bg-[--primary-accent] text-white py-2 rounded-lg font-medium hover:bg-[--primary-neutral] hover:text-[--primary-dark] transition-all duration-300 glow-effect text-sm"
+                >
+                    Login
+                </button>
+
+                <!-- OR Divider -->
+                <div class="relative flex items-center py-1">
+                    <div class="flex-grow border-t border-white/30"></div>
+                    <span class="flex-shrink mx-3 text-white/80 text-xs">OR</span>
+                    <div class="flex-grow border-t border-white/30"></div>
+                </div>
+
+                <!-- Continue with Google Button -->
+                <button
+                    type="button"
+                    class="w-full bg-white text-gray-700 py-2 rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                    onclick="loginWithGoogle()"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px" height="18px">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <!-- Register Link -->
+                <p class="text-center text-white/80 text-xs">
+                    Don't have an account?
+                    <a href="register.html" class="text-white hover:text-[--primary-neutral] transition-colors">
+                        Register
+                    </a>
+                </p>
+            </form>
+
+            <!-- Back to Home -->
+            <div class="mt-2 text-center">
+                <a
+                    href="index.html"
+                    class="text-white/80 hover:text-white transition-colors inline-flex items-center gap-1 text-xs"
+                >
+                    ← Back to Home
+                </a>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-[--primary-accent] rounded-full opacity-20 blur-2xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-[--primary-dark] rounded-full opacity-20 blur-2xl"></div>
+        </div>
+
+        <script>
+            function loginWithGoogle() {
+                // Replace this with your actual Google Authentication implementation
+                console.log("Google authentication initiated");
+                // For production, integrate with Google's OAuth 2.0 API
+                // window.location.href = "your-auth-endpoint-for-google";
+            }
+        </script>
+    </body>
+</html>

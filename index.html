@@ -16,17 +16,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@100;300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@100;300;400;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
 
     <!-- Style -->
     <style>
+      /* Romantic Color Palette */
       :root {
-        --primary-dark: #561c24;
-        --primary-red: #bf3131;
-        --primary-beige: #ead196;
-        --primary-light: #f3dc8b;
+        --primary-dark: #652A4A;  /* Deep magenta/burgundy */
+        --primary-accent: #D95980; /* Soft rose pink */
+        --primary-light: #FFE4E8; /* Light blush pink */
+        --primary-neutral: #F7D1CD; /* Soft peach */
+        --secondary-accent: #A68DAD; /* Lavender purple */
       }
 
       .font-poppins {
@@ -36,59 +38,191 @@
       .font-dancing {
         font-family: "Dancing Script", cursive;
       }
+      
+      .font-great-vibes {
+        font-family: "Great Vibes", cursive;
+      }
+      
+      /* Mobile menu animation */
+      .menu-transition {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      
+      /* Heart shape behind text */
+      .heart-bg::before {
+        content: '♥';
+        position: absolute;
+        font-size: 340px;
+        opacity: 0.03;
+        left: 40%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--primary-accent);
+        z-index: -1;
+      }
+      
+      /* Glowing effect for buttons */
+      .glow-effect {
+        box-shadow: 0 0 15px rgba(217, 89, 128, 0.4);
+        transition: all 0.3s ease;
+      }
+      
+      .glow-effect:hover {
+        box-shadow: 0 0 25px rgba(217, 89, 128, 0.7);
+      }
+      
+      /* Sparkle animation */
+      @keyframes sparkle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 0.8; }
+      }
+      
+      .sparkle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: white;
+        z-index: 1;
+        animation: sparkle 3s infinite;
+      }
+      
+      /* Gradient text effect */
+      .gradient-text {
+        background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      /* Border animation */
+      @keyframes border-pulse {
+        0%, 100% { border-color: var(--primary-accent); }
+        50% { border-color: var(--secondary-accent); }
+      }
+      
+      .animated-border {
+        border: 2px solid var(--primary-accent);
+        animation: border-pulse 4s infinite;
+      }
+      
+      /* Enhanced background gradient */
+      .romantic-gradient {
+        background: linear-gradient(to bottom, var(--primary-dark), var(--primary-neutral));
+      }
+      
+      /* Card hover effect */
+      .romantic-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .romantic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(101, 42, 74, 0.3);
+      }
     </style>
   </head>
 
-  <body
-    class="min-h-screen bg-gradient-to-b from-[#561c24] to-[#ead196] font-poppins"
-  >
+  <body class="min-h-screen romantic-gradient font-poppins no-scrollbar">
     <!-- Navbar Start -->
     <nav
-      class="bg-[--primary-dark] text-[--primary-dark] fixed top-0 left-0 right-0 z-[9999] rounded-b-2xl py-6 px-[7%] flex justify-between items-center"
+      class="bg-[--primary-dark] text-[--primary-light] fixed top-0 left-0 right-0 z-[9999] rounded-b-2xl py-4 px-8 md:px-[7%] flex justify-between items-center shadow-lg backdrop-blur-sm bg-opacity-90"
       data-aos="fade-down"
-      data-aos-duration="2000"
+      data-aos-duration="1500"
     >
       <div class="mora">
         <a
           href="index.html"
-          class="text-4xl font-bold block font-dancing text-[--primary-beige]"
+          class="text-3xl md:text-4xl font-bold block font-dancing text-[--primary-light]"
           >MORA</a
         >
       </div>
 
-      <div class="text-[1.3rem] text-[--primary-beige]">
-        <a href="#home" class="hover:text-[--primary-red] mr-4">Home</a>
-        <a href="#fitur" class="hover:text-[--primary-red] mr-4">Fitur</a>
-        <a href="#fitur" class="hover:text-[--primary-red] mr-4"
-          >Tentang Kami</a
-        >
-        <a href="#contact" class="hover:text-[--primary-red] mr-4">Kontak</a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:block text-base lg:text-lg xl:text-xl text-[--primary-light]">
+        <a href="#home" class="hover:text-[--primary-accent] mr-4 transition-all duration-300">Home</a>
+        <a href="#fitur" class="hover:text-[--primary-accent] mr-4 transition-all duration-300">Fitur</a>
+        <a href="#about" class="hover:text-[--primary-accent] mr-4 transition-all duration-300">Tentang Kami</a>
+        <a href="#contact" class="hover:text-[--primary-accent] mr-4 transition-all duration-300">Kontak</a>
       </div>
 
-      <div>
+      <div class="hidden md:block">
         <a
           href="Login.html"
-          class="bg-[--primary-red] text-[--primary-light] hover:bg-[--primary-beige] hover:text-[--primary-red] px-4 py-2 rounded-xl"
+          class="bg-[--primary-accent] text-[--primary-light] hover:bg-[--primary-neutral] hover:text-[--primary-dark] px-4 py-2 rounded-xl transition-all duration-300 glow-effect"
         >
           Login
         </a>
       </div>
+      
+      <!-- Hamburger Menu Button -->
+      <button id="menu-toggle" class="md:hidden text-[--primary-light] focus:outline-none">
+        <i data-feather="heart" class="w-6 h-6"></i>
+      </button>
     </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div 
+      id="mobile-menu" 
+      class="fixed inset-0 bg-[--primary-dark]/95 z-[9998] flex flex-col items-center justify-center transform translate-x-full menu-transition md:hidden backdrop-blur-md"
+    >
+      <button id="close-menu" class="absolute top-5 right-5 text-[--primary-light]">
+        <i data-feather="x" class="w-6 h-6"></i>
+      </button>
+      
+      <div class="flex flex-col items-center space-y-8 text-xl">
+        <a href="#home" class="text-[--primary-light] hover:text-[--primary-accent] mobile-link transition-all duration-300">Home</a>
+        <a href="#fitur" class="text-[--primary-light] hover:text-[--primary-accent] mobile-link transition-all duration-300">Fitur</a>
+        <a href="#about" class="text-[--primary-light] hover:text-[--primary-accent] mobile-link transition-all duration-300">Tentang Kami</a>
+        <a href="#contact" class="text-[--primary-light] hover:text-[--primary-accent] mobile-link transition-all duration-300">Kontak</a>
+        
+        <a
+          href="Login.html"
+          class="mt-6 bg-[--primary-accent] text-[--primary-light] hover:bg-[--primary-neutral] hover:text-[--primary-dark] px-6 py-3 rounded-xl transition-all duration-300 glow-effect"
+        >
+          Login
+        </a>
+      </div>
+    </div>
     <!-- Navbar End -->
+
+    <!-- Romantic Sparkles -->
+    <div class="sparkle" style="top: 15%; left: 10%;"></div>
+    <div class="sparkle" style="top: 25%; left: 80%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="top: 60%; left: 5%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="top: 70%; left: 90%; animation-delay: 1.5s;"></div>
+    <div class="sparkle" style="top: 40%; left: 30%; animation-delay: 2s;"></div>
+    <div class="sparkle" style="top: 85%; left: 60%; animation-delay: 2.5s;"></div>
 
     <!-- Hero Section Start -->
     <section
       id="home"
-      class="min-h-screen flex items-center justify-between px-[7%] py-6 relative overflow-hidden"
+      class="min-h-screen pt-20 md:pt-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-[7%] py-6 relative overflow-hidden heart-bg"
     >
       <div
-        class="flex flex-col gap-4 max-w-2xl z-10"
+        class="flex flex-col gap-4 max-w-2xl z-10 text-center md:text-left"
         data-aos="fade-right"
-        data-aos-duration="2000"
+        data-aos-duration="1500"
       >
         <a
           href="index.html"
-          class="text-7xl md:text-9xl font-bold text-[--primary-light] font-dancing"
+          class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-[--primary-accent] font-dancing"
         >
           MORA
         </a>
@@ -96,40 +230,43 @@
           Moment of Relationship Archive
         </h1>
         <p
-          class="text-base md:text-lg leading-[1.8] mb-6 max-w-[600px] text-[--primary-dark]"
+          class="text-base md:text-lg leading-relaxed mb-6 max-w-[600px] text-[--primary-light]"
         >
           Simpan semua kenangan, cerita, dan rencana dalam satu tempat yang rapi
           dan mudah diakses. Karena setiap momen bersama pasangan layak untuk
           dikenang, kapan pun dibutuhkan.
         </p>
-        <a
-          href="Main.html"
-          class="bg-[--primary-red] text-[--primary-light] hover:bg-[--primary-beige] hover:text-[--primary-red] px-6 py-3 rounded-xl shadow-md transition-all w-fit inline-block font-medium"
-        >
-          Mulai Sekarang
-        </a>
+        <div class="flex justify-center md:justify-start">
+          <a
+            href="Main.html"
+            class="bg-[--primary-accent] text-[--primary-light] hover:bg-[--primary-neutral] hover:text-[--primary-dark] px-6 py-3 rounded-xl shadow-md transition-all duration-300 w-fit inline-block font-medium glow-effect"
+          >
+            Mulai Sekarang
+          </a>
+        </div>
       </div>
 
       <div
-        class="absolute md:relative right-[-100px] md:right-0 bottom-0 md:bottom-auto opacity-50 md:opacity-100 z-0 md:z-10"
+        class="mt-8 md:mt-0 md:relative right-0 bottom-0 opacity-90 md:opacity-100 z-0 md:z-10"
+        data-aos="fade-left"
+        data-aos-duration="1500"
       >
         <img
           src="image/img1.png"
           alt="Ilustrasi MORA"
-          class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl"
-          data-aos="fade-left"
-          data-aos-duration="2000"
+          class="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl"
         />
       </div>
     </section>
     <!-- Hero Section End -->
 
     <!-- Fitur Section Start -->
-    <section id="fitur" class="py-12">
+    <section id="fitur" class="py-16"></section>
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-4xl font-bold text-[--primary-dark] text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-[--primary-dark] text-center mb-4 font-dancing">
           Fitur
         </h2>
+        <p class="text-center mb-16 text-[--primary-dark] max-w-2xl mx-auto">Buat hubungan semakin bermakna dengan beragam fitur yang kami tawarkan</p>
 
         <!-- Container Slider -->
         <div class="relative w-full overflow-hidden" id="slider-container">
@@ -139,112 +276,122 @@
             id="slider-content"
           >
             <!-- Slide 1 -->
-            <div class="min-w-full flex justify-center">
+            <div class="min-w-full flex justify-center px-2">
               <div
-                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl overflow-hidden romantic-card animated-border"
+                data-aos="fade-up"
+                data-aos-duration="1200"
               >
+                <h1 class="text-2xl md:text-3xl font-bold text-[--primary-light] mt-4 font-dancing">
+                  Memory Book
+                </h1>
                 <img
                   src="image/img1.png"
                   alt="Ilustrasi MORA - Fitur 1"
-                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-t-2xl"
+                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain"
                 />
                 <p
-                  class="text-base md:text-lg leading-[1.8] m-6 text-[--primary-light]"
+                  class="text-base md:text-lg leading-relaxed px-6 py-6 text-[--primary-light]"
                 >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Laboriosam sunt porro earum quis similique corporis, possimus
-                  deserunt animi neque numquam!
+                  Abadikan momen berdua dalam bentuk cerita, foto, dan kenangan
+                  manis lainnya. Semua tersimpan rapi dan bisa dikenang kapan
+                  saja.
                 </p>
               </div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="min-w-full flex justify-center">
+            <div class="min-w-full flex justify-center px-2">
               <div
-                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl overflow-hidden romantic-card animated-border"
+                data-aos="fade-up"
+                data-aos-duration="1200"
               >
+                <h1 class="text-2xl md:text-3xl font-bold text-[--primary-light] mt-4 font-dancing">
+                  Bucket List
+                </h1>
                 <img
                   src="image/img1.png"
                   alt="Ilustrasi MORA - Fitur 2"
-                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-t-2xl"
+                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain"
                 />
                 <p
-                  class="text-base md:text-lg leading-[1.8] m-6 text-[--primary-light]"
+                  class="text-base md:text-lg leading-relaxed px-6 py-6 text-[--primary-light]"
                 >
-                  Simpan semua kenangan berharga dalam galeri digital yang mudah
-                  diakses. Tambahkan caption dan tanggal untuk mengingat setiap
-                  momen istimewa dalam hubungan.
+                  Buat daftar tempat atau kegiatan seru yang ingin kalian coba
+                  bersama. Mau staycation, kulineran, atau road trip? Catat
+                  semua di sini!
                 </p>
               </div>
             </div>
 
             <!-- Slide 3 -->
-            <div class="min-w-full flex justify-center">
+            <div class="min-w-full flex justify-center px-2">
               <div
-                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl overflow-hidden romantic-card animated-border"
+                data-aos="fade-up"
+                data-aos-duration="1200"
               >
+                <h1 class="text-2xl md:text-3xl font-bold text-[--primary-light] mt-4 font-dancing">
+                  Milestone
+                </h1>
                 <img
                   src="image/img1.png"
                   alt="Ilustrasi MORA - Fitur 3"
-                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-t-2xl"
+                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain"
                 />
                 <p
-                  class="text-base md:text-lg leading-[1.8] m-6 text-[--primary-light]"
+                  class="text-base md:text-lg leading-relaxed px-6 py-6 text-[--primary-light]"
                 >
-                  Rencanakan masa depan dengan fitur kalender dan pengingat.
-                  Jangan lewatkan momen penting seperti ulang tahun,
-                  anniversary, atau janji kencan berikutnya.
+                  Rayakan setiap pencapaian dalam hubungan kalian, dari yang
+                  kecil hingga besar. Karena setiap langkah itu berarti 💖
                 </p>
               </div>
             </div>
 
             <!-- Slide 4 -->
-            <div class="min-w-full flex justify-center">
+            <div class="min-w-full flex justify-center px-2">
               <div
-                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl overflow-hidden romantic-card animated-border"
+                data-aos="fade-up"
+                data-aos-duration="1200"
               >
+                <h1 class="text-2xl md:text-3xl font-bold text-[--primary-light] mt-4 font-dancing">
+                  Calendar
+                </h1>
                 <img
                   src="image/img1.png"
                   alt="Ilustrasi MORA - Fitur 4"
-                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-t-2xl"
+                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain"
                 />
                 <p
-                  class="text-base md:text-lg leading-[1.8] m-6 text-[--primary-light]"
+                  class="text-base md:text-lg leading-relaxed px-6 py-6 text-[--primary-light]"
                 >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Placeat consequatur quo dolor iusto neque ad quaerat sed quia
-                  voluptatum officiis.
+                  Atur jadwal penting kalian berdua—ulang tahun, anniversary,
+                  atau sekadar movie night—biar nggak ada yang kelewat.
                 </p>
               </div>
             </div>
 
             <!-- Slide 5 -->
-            <div class="min-w-full flex justify-center">
+            <div class="min-w-full flex justify-center px-2">
               <div
-                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+                class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl overflow-hidden romantic-card animated-border"
+                data-aos="fade-up"
+                data-aos-duration="1200"
               >
+                <h1 class="text-2xl md:text-3xl font-bold text-[--primary-light] mt-4 font-dancing">
+                  Journal
+                </h1>
                 <img
                   src="image/img1.png"
                   alt="Ilustrasi MORA - Fitur 5"
-                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain rounded-t-2xl"
+                  class="max-w-full md:max-w-md lg:max-w-lg h-auto object-contain"
                 />
                 <p
-                  class="text-base md:text-lg leading-[1.8] m-6 text-[--primary-light]"
+                  class="text-base md:text-lg leading-relaxed px-6 py-6 text-[--primary-light]"
                 >
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dicta possimus natus, totam eos, dolorum ratione quaerat
-                  inventore corrupti voluptatem quo vel, necessitatibus tempore
-                  ex ea perferendis maiores magnam minima enim.
+                  Tulis pesan pribadi, rencana kejutan, atau sekadar unek-unek.
                 </p>
               </div>
             </div>
@@ -252,11 +399,11 @@
 
           <!-- Navigation Buttons -->
           <div
-            class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4"
+            class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2"
           >
             <button
               id="prev-btn"
-              class="bg-[--primary-red] text-white hover:bg-[--primary-beige] hover:text-[--primary-red] w-10 h-10 rounded-full shadow-md transition-all duration-300 flex items-center justify-center opacity-75 hover:opacity-100"
+              class="bg-[--primary-accent] text-white hover:bg-[--primary-neutral] hover:text-[--primary-dark] w-10 h-10 rounded-full shadow-md transition-all duration-300 flex items-center justify-center opacity-75 hover:opacity-100 glow-effect"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +421,7 @@
 
             <button
               id="next-btn"
-              class="bg-[--primary-red] text-white hover:bg-[--primary-beige] hover:text-[--primary-red] w-10 h-10 rounded-full shadow-md transition-all duration-300 flex items-center justify-center opacity-75 hover:opacity-100"
+              class="bg-[--primary-accent] text-white hover:bg-[--primary-neutral] hover:text-[--primary-dark] w-10 h-10 rounded-full shadow-md transition-all duration-300 flex items-center justify-center opacity-75 hover:opacity-100 glow-effect"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -292,35 +439,234 @@
           </div>
 
           <!-- Pagination Dots -->
-          <div class="w-full flex justify-center gap-2 mt-6">
+          <div class="w-full flex justify-center gap-2 mt-8">
             <button
-              class="w-3 h-3 rounded-full bg-[--primary-red] opacity-100 transition-opacity duration-300"
+              class="w-3 h-3 rounded-full bg-[--primary-accent] opacity-100 transition-opacity duration-300"
               data-index="0"
             ></button>
             <button
-              class="w-3 h-3 rounded-full bg-[--primary-red] opacity-50 transition-opacity duration-300"
+              class="w-3 h-3 rounded-full bg-[--primary-accent] opacity-50 transition-opacity duration-300"
               data-index="1"
             ></button>
             <button
-              class="w-3 h-3 rounded-full bg-[--primary-red] opacity-50 transition-opacity duration-300"
+              class="w-3 h-3 rounded-full bg-[--primary-accent] opacity-50 transition-opacity duration-300"
               data-index="2"
             ></button>
             <button
-              class="w-3 h-3 rounded-full bg-[--primary-red] opacity-50 transition-opacity duration-300"
+              class="w-3 h-3 rounded-full bg-[--primary-accent] opacity-50 transition-opacity duration-300"
               data-index="3"
             ></button>
             <button
-              class="w-3 h-3 rounded-full bg-[--primary-red] opacity-50 transition-opacity duration-300"
+              class="w-3 h-3 rounded-full bg-[--primary-accent] opacity-50 transition-opacity duration-300"
               data-index="4"
             ></button>
           </div>
         </div>
       </div>
     </section>
+    <!-- Fitur Section End -->
 
-    <!-- JavaScript untuk kontrol slider -->
+    <!-- About Section Start -->
+    <section id="about" class="py-24 px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[--primary-dark] text-center mb-4 font-dancing">
+          Tentang Kami
+        </h2>
+        <p class="text-center mb-12 text-[--primary-dark] max-w-xl mx-auto">Cerita di balik perjalanan kami</p>
+
+        <div class="flex justify-center">
+          <div
+            class="flex flex-col items-center gap-4 max-w-2xl z-10 rounded-2xl bg-[--primary-dark] text-center shadow-xl romantic-card animated-border"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+          >
+            <div class="text-base md:text-lg leading-relaxed p-8 text-[--primary-light] space-y-4">
+              <p>
+                MORA lahir dari satu pertanyaan sederhana:
+                <span class="italic font-medium">"Gimana caranya menjaga hubungan tetap hangat di tengah kesibukan sehari-hari?"</span>
+              </p>
+              
+              <p>
+                Kami percaya bahwa hubungan yang sehat dibangun dari komunikasi, momen kecil, dan rasa saling menghargai.
+              </p>
+              
+              <p>
+                MORA hadir sebagai ruang bersama—tempat pasangan bisa menyimpan kenangan, merencanakan masa depan, dan tetap terhubung, kapan pun, di mana pun.
+              </p>
+              
+              <p>
+                Kami adalah tim kecil yang peduli pada hubungan bermakna, dan kami ingin bantu pasangan lain untuk tumbuh bersama, satu hari demi satu hari.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="py-16 px-4 scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[--primary-dark] text-center mb-4 font-dancing">
+          Kontak
+        </h2>
+        <p class="text-center mb-12 text-[--primary-dark] max-w-xl mx-auto">Ada pertanyaan atau saran? Hubungi kami, ya!</p>
+
+        <div class="flex justify-center">
+          <div
+            class="flex flex-col items-center gap-4 max-w-2xl w-full z-10 rounded-3xl bg-[--primary-dark] text-center shadow-xl romantic-card animated-border"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+          >
+            <div class="text-base md:text-lg leading-relaxed p-8 text-[--primary-light] space-y-4 w-full">              
+              <form class="space-y-6 w-full">
+                <div class="flex flex-col md:flex-row gap-4">
+                  <div class="md:w-1/2">
+                    <input
+                      type="text"
+                      placeholder="Nama"
+                      class="w-full p-3 rounded-xl bg-[--primary-neutral] text-[--primary-dark] placeholder-[--primary-dark]/70 focus:outline-none focus:ring-2 focus:ring-[--primary-accent] transition-all duration-300"
+                    />
+                  </div>
+                  <div class="w-full md:w-1/2">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="w-full p-3 rounded-xl bg-[--primary-neutral] text-[--primary-dark] placeholder-[--primary-dark]/70 focus:outline-none focus:ring-2 focus:ring-[--primary-accent] transition-all duration-300"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <textarea
+                    placeholder="Pesan"
+                    rows="4"
+                    class="w-full p-3 rounded-xl bg-[--primary-neutral] text-[--primary-dark] placeholder-[--primary-dark]/70 focus:outline-none focus:ring-2 focus:ring-[--primary-accent] transition-all duration-300"
+                  ></textarea>
+                </div>
+                
+                <div class="flex justify-center">
+                  <button
+                    type="submit"
+                    class="bg-[--primary-accent] text-[--primary-light] hover:bg-[--primary-neutral] hover:text-[--primary-dark] px-6 py-3 rounded-xl shadow-md transition-all duration-300 w-fit inline-block font-medium glow-effect"
+                  >
+                    Kirim Pesan
+                  </button>
+                </div>
+              </form>
+              
+              <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mt-8">
+                <div class="flex items-center gap-2">
+                  <span class="text-[--primary-light]">
+                    <i data-feather="mail" class="w-5 h-5"></i>
+                  </span>
+                  <a href="mailto:mhdrflii843@gmail.com" class="text-[--primary-light] hover:text-[--primary-neutral] transition-colors">
+                    mhdrflii843@gmail.com
+                  </a>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                  <span class="text-[--primary-light]">
+                    <i data-feather="instagram" class="w-5 h-5"></i>
+                  </span>
+                  <a href="https://instagram.com/fliirf_" class="text-[--primary-light] hover:text-[--primary-neutral] transition-colors">
+                    @fliirf_
+                  </a>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                  <span class="text-[--primary-light]">
+                    <i data-feather="instagram" class="w-5 h-5"></i>
+                  </span>
+                  <a href="https://instagram.com/aisyyhf_" class="text-[--primary-light] hover:text-[--primary-neutral] transition-colors">
+                    @aisyyhf_
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer -->
+    <footer class="bg-[--primary-dark] text-[--primary-light] py-6 px-4 mt-12 rounded-t-3xl">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <a href="index.html" class="text-3xl font-bold font-great-vibes text-[--primary-accent]">MORA</a>
+          <p class="text-sm mt-1">Moment of Relationship Archive</p>
+        </div>
+        <div class="text-sm">
+          &copy; 2025 MORA. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for slider control -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Create romantic sparkles
+        function createSparkles() {
+          const body = document.body;
+          for (let i = 0; i < 15; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 5 + 's';
+            sparkle.style.opacity = Math.random() * 0.5 + 0.2;
+            body.appendChild(sparkle);
+          }
+        }
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+          const container = document.createElement('div');
+          container.className = 'fixed inset-0 pointer-events-none z-0 overflow-hidden';
+          document.body.appendChild(container);
+          
+          for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+              const heart = document.createElement('div');
+              heart.innerHTML = '♥';
+              heart.className = 'absolute text-[--primary-accent] opacity-10 pointer-events-none';
+              heart.style.left = Math.random() * 100 + '%';
+              heart.style.top = '100%';
+              heart.style.fontSize = Math.random() * 30 + 10 + 'px';
+              heart.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
+              container.appendChild(heart);
+              
+              // Add keyframes for floating animation
+              const style = document.createElement('style');
+              style.innerHTML = `
+                @keyframes float {
+                  0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                  }
+                  10% {
+                    opacity: 0.1;
+                  }
+                  90% {
+                    opacity: 0.1;
+                  }
+                  100% {
+                    transform: translateY(-100vh) rotate(${Math.random() * 360}deg);
+                    opacity: 0;
+                  }
+                }
+              `;
+              document.head.appendChild(style);
+            }, i * 1000);
+          }
+        }
+        
+        // Initialize sparkles and floating hearts
+        createSparkles();
+        createFloatingHearts();
+        
+        // Slider functionality
         const sliderContent = document.getElementById("slider-content");
         const prevBtn = document.getElementById("prev-btn");
         const nextBtn = document.getElementById("next-btn");
@@ -329,7 +675,7 @@
         let currentSlide = 0;
         const slidesCount = sliderContent.children.length;
 
-        // Fungsi untuk memperbarui slider
+        // Function to update slider
         function updateSlider() {
           sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
 
@@ -345,40 +691,159 @@
           });
         }
 
-        // Event listener untuk tombol next
+        // Event listener for next button
         nextBtn.addEventListener("click", function () {
           if (currentSlide < slidesCount - 1) {
             currentSlide++;
-            updateSlider();
           } else {
-            // Loop kembali ke awal
+            // Loop back to start
             currentSlide = 0;
-            updateSlider();
           }
+          updateSlider();
         });
 
-        // Event listener untuk tombol prev
+        // Event listener for prev button
         prevBtn.addEventListener("click", function () {
           if (currentSlide > 0) {
             currentSlide--;
-            updateSlider();
           } else {
-            // Loop ke slide terakhir
+            // Loop to last slide
             currentSlide = slidesCount - 1;
-            updateSlider();
           }
+          updateSlider();
         });
 
-        // Event listener untuk dot pagination
+        // Event listener for dot pagination
         dots.forEach((dot, index) => {
           dot.addEventListener("click", function () {
             currentSlide = index;
             updateSlider();
           });
         });
+        
+        // Auto slide functionality
+        let slideInterval = setInterval(() => {
+          if (currentSlide < slidesCount - 1) {
+            currentSlide++;
+          } else {
+            currentSlide = 0;
+          }
+          updateSlider();
+        }, 5000);
+        
+        // Pause auto slide on hover
+        sliderContent.addEventListener('mouseenter', () => {
+          clearInterval(slideInterval);
+        });
+        
+        sliderContent.addEventListener('mouseleave', () => {
+          slideInterval = setInterval(() => {
+            if (currentSlide < slidesCount - 1) {
+              currentSlide++;
+            } else {
+              currentSlide = 0;
+            }
+            updateSlider();
+          }, 5000);
+        });
+        
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.remove('translate-x-full');
+          mobileMenu.classList.add('translate-x-0');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+          mobileMenu.classList.remove('translate-x-0');
+          mobileMenu.classList.add('translate-x-full');
+        });
+        
+        // Close menu when clicking on links
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+          });
+        });
+        
+        // Add subtle hover effects to all interactive elements
+        const hoverableElements = document.querySelectorAll('a, button');
+        hoverableElements.forEach(element => {
+          element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.05)';
+            element.style.transition = 'transform 0.3s ease';
+          });
+          
+          element.addEventListener('mouseleave', () => {
+            element.style.transform = 'scale(1)';
+          });
+        });
+        
+        // Add additional romantic effect on scroll
+        window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          if (scrollPosition > 300 && Math.random() > 0.98) {
+            createHeartBurst();
+          }
+        });
+        
+        // Create heart burst effect
+        function createHeartBurst() {
+          const burstContainer = document.createElement('div');
+          burstContainer.className = 'fixed pointer-events-none z-50';
+          burstContainer.style.top = Math.random() * window.innerHeight + 'px';
+          burstContainer.style.left = Math.random() * window.innerWidth + 'px';
+          
+          for (let i = 0; i < 5; i++) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '♥';
+            heart.className = 'absolute text-[--primary-accent]';
+            heart.style.fontSize = Math.random() * 15 + 10 + 'px';
+            heart.style.opacity = '0';
+            heart.style.transform = 'translate(-50%, -50%)';
+            heart.style.animation = `burstHeart 2s ease-out forwards`;
+            burstContainer.appendChild(heart);
+            
+            // Random direction
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 50 + 20;
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            
+            // Add keyframes for burst animation
+            const style = document.createElement('style');
+            style.innerHTML = `
+              @keyframes burstHeart {
+                0% {
+                  transform: translate(-50%, -50%) scale(0);
+                  opacity: 0;
+                }
+                20% {
+                  opacity: 0.7;
+                }
+                100% {
+                  transform: translate(${x}px, ${y}px) scale(1);
+                  opacity: 0;
+                }
+              }
+            `;
+            document.head.appendChild(style);
+          }
+          
+          document.body.appendChild(burstContainer);
+          
+          // Remove after animation is complete
+          setTimeout(() => {
+            burstContainer.remove();
+          }, 2000);
+        }
       });
     </script>
-    <!-- Fitur Section End -->
 
     <!-- Feather icons -->
     <script>
@@ -388,7 +853,11 @@
     <!-- AOS init -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
+      AOS.init({
+        once: true, 
+        duration: 1200,
+        offset: 100
+      });
     </script>
   </body>
 </html>
